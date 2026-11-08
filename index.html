@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilatação Térmica Volumétrica</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background-overlay"></div>
+
+    <div id="formulas-container"></div>
+
+    <div class="interface-container">
+
+        <aside class="panel painel-info">
+
+            <h2>DILATAÇÃO TÉRMICA VOLUMÉTRICA</h2>
+
+            <div class="dados">
+
+                <div class="linha">
+                    <span>Material:</span>
+
+                    <select id="material">
+                        <option value="0" selected>Selecione um material</option>
+                        <option value="0.003660">
+                            Hélio (He)
+                        </option>
+
+                        <option value="0.003661">
+                            Hidrogênio (H₂)
+                        </option>
+
+                        <option value="0.003672">
+                            Nitrogênio (N₂)
+                        </option>
+
+                        <option value="0.003674">
+                            Oxigênio (O₂)
+                        </option>
+
+                        <option value="0.003671">
+                            Ar Atmosférico
+                        </option>
+
+                        <option value="0.003741">
+                            Dióxido de Carbono (CO₂)
+                        </option>
+                    </select>
+                </div>
+
+                <div class="linha">
+                    <span>Volume Inicial:</span>
+                    <input type="number" id="volume" value="0" min="0">
+                </div>
+
+                <div class="linha">
+                    <span>Temperatura Inicial:</span>
+                    <input type="number" id="tempInicial" value="0">
+                </div>
+
+                <div class="linha">
+                    <span>Temperatura Final:</span>
+                    <input type="number" id="tempFinal" value="0" min="0" max="2000">
+                </div>
+
+                <div class="linha">
+                    <span>ΔT:</span>
+                    <strong id="deltaT">0 °C</strong>
+                </div>
+
+                <div class="linha">
+                    <span>Coeficiente (β):</span>
+                    <strong id="coeficiente">
+                        0 × 10⁻³ °C⁻¹
+                    </strong>
+                </div>
+
+                <div class="linha">
+                    <span>ΔV:</span>
+                    <strong id="deltaV">
+                        0 cm³
+                    </strong>
+                </div>
+
+                <div class="linha">
+                    <span>Volume Final:</span>
+                    <strong id="volumeFinal">
+                        0 cm³
+                    </strong>
+                </div>
+
+            </div>
+
+        </aside>
+
+        <main class="visualizacao">
+
+            <div id="scene3d"></div>
+
+        </main>
+
+        <aside class="panel painel-grafico">
+
+            <div class="grafico-box">
+                <canvas id="graficoVolume"></canvas>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <section class="panel painel-temperatura">
+
+        <h3>TEMPERATURA</h3>
+
+        <div class="temperaturas">
+            <span>0°C</span>
+            <span>2000°C</span>
+        </div>
+
+        <input
+            type="range"
+            id="sliderTemperatura"
+            min="0"
+            max="2000"
+            value="0">
+
+        <div class="temperaturas">
+            <span id="temperaturaAtual">0°C</span>
+            <span id="temperaturaFinalVisual">0°C</span>
+        </div>
+
+    </section>
+
+    <div id="neve" class="hidden"></div>
+    <div id="sol" class="hidden"></div>
+
+    <footer class="assinatura">By Joabe Constantino</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
