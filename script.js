@@ -11,7 +11,7 @@ function calcular() {
     const V0 =
         parseFloat(document.getElementById("volume").value) || 0;
 
-    const beta =
+    const gama =
         parseFloat(document.getElementById("material").value) || 0;
 
     const tempInicial =
@@ -24,7 +24,7 @@ function calcular() {
         tempFinal - tempInicial;
 
     const deltaV =
-        V0 * beta * deltaT;
+        V0 * gama * deltaT;
 
     const volumeFinal =
         V0 + deltaV;
@@ -39,12 +39,12 @@ function calcular() {
         `${volumeFinal.toFixed(2)} cm³`;
 
     document.getElementById("coeficiente").textContent =
-        (beta * 1000).toFixed(3) + " × 10⁻³ °C⁻¹";
+        (gama * 1000).toFixed(3) + " × 10⁻³ °C⁻¹";
 
     if(cuboExterno){
 
         const razaoVolume =
-            Math.max(1 + beta * deltaT, 0);
+            Math.max(1 + gama * deltaT, 0);
 
         fatorAlvo = Math.sqrt(razaoVolume);
     }
@@ -67,7 +67,7 @@ function calcular() {
 
     atualizarGrafico(
         V0,
-        beta,
+        gama,
         tempInicial,
         tempFinal
     );
@@ -80,7 +80,7 @@ function calcular() {
 
 function atualizarGrafico(
     V0,
-    beta,
+    gama,
     tempInicial,
     tempFinal
 ){
@@ -110,7 +110,7 @@ function atualizarGrafico(
             return V0 +
             (
                 V0 *
-                beta *
+                gama *
                 (
                     temp -
                     tempInicial
@@ -204,11 +204,11 @@ function atualizarGrafico(
 
 const formulas = [
 
-    "ΔV = V₀ · β · ΔT",
+    "ΔV = V₀ · γ · ΔT",
 
-    "V(T)=V₀(1+βΔT)",
+    "V(T)=V₀(1+γΔT)",
 
-    "β = 3α",
+    "γ = 3α",
 
     "ΔT = Tf − Ti",
 
