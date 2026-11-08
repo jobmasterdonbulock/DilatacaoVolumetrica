@@ -17,9 +17,9 @@ function calcular() {
     document.getElementById("coeficiente").textContent = (gama * 1000).toFixed(3) + " × 10⁻³ °C⁻¹";
 
     if (cuboExterno) {
-        const temperaturaVisual = Math.min(Math.max(tempFinal, 0), 2000);
-        const escalaMaxima = 8;
-        fatorAlvo = 1 + (temperaturaVisual / 2000) * (escalaMaxima - 1);
+        // Amplificação visual: 2000°C corresponde à expansão calculada para 200000°C.
+        const temperaturaVisualEquivalente = tempFinal * 100;
+        fatorAlvo = Math.sqrt(Math.max(1 + gama * temperaturaVisualEquivalente, 0));
     }
 
     const temperaturaAtual = document.getElementById("temperaturaAtual");
