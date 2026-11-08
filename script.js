@@ -17,9 +17,10 @@ function calcular() {
     document.getElementById("coeficiente").textContent = (gama * 1000).toFixed(3) + " × 10⁻³ °C⁻¹";
 
     if (cuboExterno) {
-        // Amplificação visual: 2000°C corresponde à expansão calculada para 200000°C.
-        const temperaturaVisualEquivalente = tempFinal * 100;
-        fatorAlvo = Math.sqrt(Math.max(1 + gama * temperaturaVisualEquivalente, 0));
+        // Mantém a amplificação visual, mas calcula a expansão com γ do material e ΔT.
+        // Assim, para a mesma variação de temperatura, maior γ produz um cubo maior.
+        const deltaTVisualEquivalente = deltaT * 100;
+        fatorAlvo = Math.sqrt(Math.max(1 + gama * deltaTVisualEquivalente, 0));
     }
 
     const temperaturaAtual = document.getElementById("temperaturaAtual");
