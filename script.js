@@ -42,11 +42,14 @@ function calcular() {
         (gama * 1000).toFixed(3) + " × 10⁻³ °C⁻¹";
 
     if(cuboExterno){
+        // Escala visual linearizada para ficar perceptível entre 0°C e 2000°C.
+        const temperaturaVisual =
+            Math.min(Math.max(tempFinal, 0), 2000);
 
-        const razaoVolume =
-            Math.max(1 + gama * deltaT, 0);
+        const escalaMaxima = 1.8;
 
-        fatorAlvo = Math.sqrt(razaoVolume);
+        fatorAlvo =
+            1 + (temperaturaVisual / 2000) * (escalaMaxima - 1);
     }
 
     const temperaturaAtual =
