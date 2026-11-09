@@ -76,16 +76,16 @@ body::before{
 .formula{
     position:absolute;
 
-    color:#ffffff;
+    color:#8adfff;
 
     opacity:1;
 
     font-weight:700;
 
     text-shadow:
-    0 0 6px #ffffff,
-    0 0 14px #9ff3ff,
-    0 0 28px rgba(88, 218, 255, 0.95);
+    0 0 6px #b8edff,
+    0 0 14px #65cfff,
+    0 0 28px rgba(65, 190, 255, 0.95);
 
     animation:flutuar 15s linear forwards;
 }
@@ -518,9 +518,9 @@ canvas{
     font-weight: bold;
     text-align: center;
     margin: 12px 0;
-    color: #ffffff;
+    color: #8adfff;
     text-shadow:
-        0 0 6px #ffffff,
-        0 0 14px #9ff3ff,
-        0 0 28px rgba(88, 218, 255, 0.95);
+        0 0 6px #b8edff,
+        0 0 14px #65cfff,
+        0 0 28px rgba(65, 190, 255, 0.95);
 }
