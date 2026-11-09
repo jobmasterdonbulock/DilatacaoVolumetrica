@@ -17,9 +17,8 @@ function calcular() {
     document.getElementById("coeficiente").textContent = (gama * 1e6).toFixed(0) + " × 10⁻⁶ °C⁻¹";
 
     if (cuboExterno) {
-        // Amplificação visual: mantém a relação direta com γ e ΔT para destacar diferenças entre materiais.
-        const amplificacaoVisual = 50;
-        fatorAlvo = Math.max(0.2, 1 + gama * deltaT * amplificacaoVisual);
+        const razaoVolume = Math.max(1 + gama * deltaT, 0);
+        fatorAlvo = Math.sqrt(razaoVolume);
     }
 
     const temperaturaAtual = document.getElementById("temperaturaAtual");
@@ -143,8 +142,7 @@ if (sceneContainer && typeof THREE !== "undefined") {
         transparent: true,
         opacity: 0.12,
         roughness: 0,
-        transmission: 1,
-        side: THREE.DoubleSide
+        transmission: 1
     });
     cuboExterno = new THREE.Mesh(geoExterno, matExterno);
     scene.add(cuboExterno);
@@ -162,10 +160,7 @@ if (sceneContainer && typeof THREE !== "undefined") {
             (Math.random() - 0.5) * 80
         );
     }
-    particulasGeo.setAttribute(
-        "position",
-        new THREE.Float32BufferAttribute(vertices, 3)
-    );
+    particulasGeo.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
     const particulas = new THREE.Points(
         particulasGeo,
         new THREE.PointsMaterial({ color: 0xffffff, size: 0.06 })
