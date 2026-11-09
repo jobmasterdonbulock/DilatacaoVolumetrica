@@ -17,14 +17,9 @@ function calcular() {
     document.getElementById("coeficiente").textContent = (gama * 1e6).toFixed(0) + " × 10⁻⁶ °C⁻¹";
 
     if (cuboExterno) {
-        // Amplificação somente visual para tornar a diferença entre materiais visível.
-        // A 2000°C, a escala reage como se a variação de temperatura fosse 1000 vezes maior.
-        const amplificacaoVisual = 1000;
-        const razaoVolumeVisual = Math.max(
-            1 + gama * deltaT * amplificacaoVisual,
-            0
-        );
-        fatorAlvo = Math.cbrt(razaoVolumeVisual);
+        // Amplificação visual: mantém a relação direta com γ e ΔT para destacar diferenças entre materiais.
+        const amplificacaoVisual = 50;
+        fatorAlvo = Math.max(0.2, 1 + gama * deltaT * amplificacaoVisual);
     }
 
     const temperaturaAtual = document.getElementById("temperaturaAtual");
