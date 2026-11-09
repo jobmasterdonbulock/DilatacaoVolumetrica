@@ -76,16 +76,16 @@ body::before{
 .formula{
     position:absolute;
 
-    color:#dffaff;
+    color:#ffffff;
 
-    opacity:.6;
+    opacity:1;
 
     font-weight:700;
 
     text-shadow:
-    0 0 10px rgba(143, 237, 255, 0.9),
-    0 0 20px rgba(143, 237, 255, 0.7),
-    0 0 35px rgba(143, 237, 255, 0.45);
+    0 0 6px #ffffff,
+    0 0 14px #9ff3ff,
+    0 0 28px rgba(88, 218, 255, 0.95);
 
     animation:flutuar 15s linear forwards;
 }
@@ -98,11 +98,11 @@ body::before{
     }
 
     20%{
-        opacity:.6;
+        opacity:1;
     }
 
     80%{
-        opacity:.6;
+        opacity:1;
     }
 
     to{
@@ -514,9 +514,13 @@ canvas{
 }
 
 .formula {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     text-align: center;
     margin: 12px 0;
-    color: #eafcff;
+    color: #ffffff;
+    text-shadow:
+        0 0 6px #ffffff,
+        0 0 14px #9ff3ff,
+        0 0 28px rgba(88, 218, 255, 0.95);
 }
