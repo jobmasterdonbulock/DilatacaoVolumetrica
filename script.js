@@ -18,7 +18,8 @@ function calcular() {
 
     if (cuboExterno) {
         const razaoVolume = Math.max(1 + gama * deltaT, 0);
-        fatorAlvo = Math.sqrt(razaoVolume);
+        // Amplifica a expansão visual para torná-la mais perceptível.
+        fatorAlvo = Math.max(0.1, 1 + (razaoVolume - 1) * 20);
     }
 
     const temperaturaAtual = document.getElementById("temperaturaAtual");
